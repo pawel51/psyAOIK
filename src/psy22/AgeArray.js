@@ -8,6 +8,7 @@ const AgeArray = props => {
         return parseFloat(a)+parseFloat(b)
     })/props.ageArray.length);
 
+
     useEffect(() => {
         /* Dodaje losowy int od 1 do 100 do tablicy ageArray */
         // function getNewArray(newArray){
