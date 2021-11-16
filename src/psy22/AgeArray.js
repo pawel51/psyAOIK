@@ -16,9 +16,18 @@ const AgeArray = props => {
         //     return newArray
         // }
         // const interval = setInterval((ageArray) => setAgeArray((ageArray) => getNewArray(ageArray)), 2000)
-
-        ageArray.push(Math.round((Math.random() * (100 - 1) + 1)).toString())
-        const interval = setInterval(() => setAgeArray({ageArray:ageArray, size:size+1}), 2000)
+        let tempArray = [...ageArray]
+        let filteredArray
+        while(true){
+            let newNum = (Math.round((Math.random() * (100 - 1) + 1)).toString())
+            filteredArray = tempArray.filter((e) => e===newNum)
+            if (filteredArray.length === 0){
+                tempArray.push(newNum)
+                break
+            }
+        }
+        
+        const interval = setInterval(() => setAgeArray({ageArray:tempArray, size:size+1}), 2000)
 
 
         return () => clearInterval(interval);
